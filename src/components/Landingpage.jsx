@@ -7,7 +7,7 @@ function LandingPage() {
         <Link to="/wallet">My Wallet</Link>
         <Link to="/Income">Income</Link>
         <Link to="/Transactions">Transactions</Link>
-        <Link to="/usage">Personal Use</Link>
+        <Link to="/usage">Personal</Link>
         <Link to="/Bills">Bills</Link>
         <Link to="/Savings">Savings</Link>
         <Link to="/graph">Graphical analysis</Link>
