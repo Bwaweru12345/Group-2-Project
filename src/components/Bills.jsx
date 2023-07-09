@@ -1,90 +1,65 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const Bills = () => {
+function Bills() {
   const [bills, setBills] = useState([]);
-  const [newBill, setNewBill] = useState({
-    name: '',
-    amount: '',
-    isPaid: false,
-    dueDate: '',
-  });
+  const [userId, setUserId] = useState('');
 
-  const addBill = () => {
-    setBills([...bills, newBill]);
-    setNewBill({
-      name: '',
-      amount: '',
-      isPaid: false,
-      dueDate: '',
-    });
+  useEffect(() => {
+    fetchBills();
+  }, [userId]);
+
+  const fetchBills = async () => {
+    if (!userId) return; // Skip fetching if userId is not set
+
+    try {
+      const response = await fetch(`http://localhost:3000/users/${userId}/bills`, {
+        headers: {
+          Authorization: 'Bearer YOUR_AUTH_TOKEN', // Replace with the actual token
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setBills(data);
+      } else {
+        console.error('Error fetching bills:', response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching bills:', error);
+    }
   };
 
-  const togglePayment = (id) => {
-    setBills(
-      bills.map((bill) =>
-        bill.id === id ? { ...bill, isPaid: !bill.isPaid } : bill
-      )
-    );
+  const handleCreateBill = async (e) => {
+    e.preventDefault();
+
+    // Implement the logic to create a new bill
+    // ...
+
+    // After creating the bill, you may want to fetch the updated list of bills
+    fetchBills();
   };
 
   return (
-    <div className="bills-container">
-      <h1>My Bills</h1>
-      <table className="bills-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>Status</th>
-            <th>Due Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {bills.map((bill) => (
-            <tr key={bill.id}>
-              <td>{bill.name}</td>
-              <td>${bill.amount}</td>
-              <td
-                className={bill.isPaid ? 'paid' : 'not-paid'}
-                onClick={() => togglePayment(bill.id)}
-              >
-                {bill.isPaid ? 'Paid' : 'Not Paid'}
-              </td>
-              <td>{bill.dueDate}</td>
-              <td>
-                <button onClick={() => togglePayment(bill.id)}>
-                  {bill.isPaid ? 'Unpay' : 'Pay'}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="add-bill-container">
-        <h3>Add a Bill</h3>
-        <input
-          type="text"
-          placeholder="Name"
-          value={newBill.name}
-          onChange={(e) => setNewBill({ ...newBill, name: e.target.value })}
-        />
-        <input
-          type="number"
-          placeholder="Amount"
-          value={newBill.amount}
-          onChange={(e) => setNewBill({ ...newBill, amount: e.target.value })}
-        />
-        <input
-          type="date"
-          placeholder="Due Date"
-          value={newBill.dueDate}
-          onChange={(e) => setNewBill({ ...newBill, dueDate: e.target.value })}
-        />
-        <button onClick={addBill}>Add Bill</button>
-      </div>
+    <div>
+      <h2>Bills</h2>
+      <ul>
+        {bills.map((bill) => (
+          <li key={bill.id}>
+            <h3>{bill.name}</h3>
+            <p>Amount: {bill.amount}</p>
+            <p>Due Date: {bill.due_date}</p>
+            <p>Is Paid: {bill.is_paid ? 'Yes' : 'No'}</p>
+          </li>
+        ))}
+      </ul>
+
+      <h3>Create Bill</h3>
+      <form onSubmit={handleCreateBill}>
+        {/* Form inputs */}
+        <button type="submit">Create Bill</button>
+      </form>
     </div>
   );
-};
+}
 
 export default Bills;

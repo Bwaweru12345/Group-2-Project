@@ -9,11 +9,13 @@ import Wallet from './components/My Wallet';
 import Transactions from './components/Transactions';
 import Personal from './components/Personal';
 import LandingPage from './components/Landingpage';
+import Footer from './components/Footer';
+
 
 function App() {
   return (
    
-      <div>
+      <div className='body'>
         <LandingPage />
 
         <Routes>
@@ -26,6 +28,7 @@ function App() {
           <Route path="/usage" element={<Personal />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Footer />
       </div>
     
   );

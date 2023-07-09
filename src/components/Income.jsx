@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
+import './Income.css';
 
 function Income() {
   const [incomeData, setIncomeData] = useState([]);
 
   useEffect(() => {
     // Fetch income data from the backend
-    fetch('/api/income') // Replace with your actual API endpoint
-      .then(response => response.json())
-      .then(data => setIncomeData(data))
-      .catch(error => console.error(error));
+    fetch('http://localhost:8000/api/incomes')
+  .then(response => response.json())
+  .then(data => setIncomeData(data))
+  .catch(error => console.error(error));
+
   }, []);
 
   return (
     <div>
-      <h2>Income</h2>
-      <table>
+      <h2 className="income-heading">Income</h2>
+      <table className="income-table">
         <thead>
           <tr>
             <th>Date</th>

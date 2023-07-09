@@ -1,38 +1,44 @@
-/* App.css */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .list a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #f0f0f0;
-    color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .list a:hover {
-    background-color: #ccc;
-  }
-  
-  .component-container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-  }
-  
+.navbar {
+  background-color: rgba(0, 0, 0, 0.8); /* Translucent black background */
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
 
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
 
-    
+.navbar-item {
+  margin: 0 10px;
+}
+
+.navbar-item:last-child {
+  margin-right: 0;
+}
+
+.navbar-item a {
+  color: #fff; /* Link color */
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar-item a:hover {
+  color: #ddd;
+}
+
+/* Add a hover effect for the navbar */
+.navbar-item:hover {
+  transform: scale(1.1);
+}
+
+/* Add a bottom border to the active link */
+.navbar-item.active a {
+  border-bottom: 2px solid #fff;
+}
