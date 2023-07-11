@@ -1,98 +1,98 @@
 import React, { useState } from 'react';
+import './login.css'; // Import the CSS file
 
-function Login() {
+const Login = ({ handleLogin, handleSignUp }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSigningUp, setIsSigningUp] = useState(false);
+  const [signupEmail, setSignupEmail] = useState('');
+  const [signupPassword, setSignupPassword] = useState('');
 
-  const handleLogin = async (e) => {
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
-
-    // Send login request to the backend API
-    const response = await fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (response.ok) {
-      // Login successful
-      const data = await response.json();
-      console.log(data); // Handle the response data as needed
-    } else {
-      // Login failed
-      const error = await response.text();
-      console.error(error);
-    }
+    handleLogin({ email, password });
   };
 
-  const handleSignUp = async (e) => {
+  const handleSignupSubmit = (e) => {
     e.preventDefault();
-
-    // Send sign up request to the backend API
-    const response = await fetch('http://localhost:3000/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: { email, password }, // Include the 'user' parameter
-      }),
-    });
-
-    if (response.ok) {
-      // Sign up successful
-      const data = await response.json();
-      console.log(data); // Handle the response data as needed
-    } else {
-      // Sign up failed
-      const error = await response.text();
-      console.error(error);
-    }
+    handleSignUp({ email: signupEmail, password: signupPassword });
   };
+
+  const toggleSignup = () => {
+    setIsSigningUp(!isSigningUp);
+  };
+
+  if (isSigningUp) {
+    return (
+      <div className="login-container">
+        <div className="login-form-container">
+          <form onSubmit={handleSignupSubmit}>
+            <label>
+              Email
+               <br />
+              <input
+                type="email"
+                value={signupEmail}
+                onChange={(e) => setSignupEmail(e.target.value)}
+              />
+            </label>
+            <br />
+            <label>
+              Password
+            <br />
+              <input
+                type="password"
+                value={signupPassword}
+                onChange={(e) => setSignupPassword(e.target.value)}
+              />
+            </label>
+            <br />
+            <button type="submit">Sign Up</button>
+            <p className="signup-link">
+              Already have an account?{' '}
+              <button onClick={toggleSignup}>Login</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSignUp}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+    <div className="login-container">
+      <div className="login-form-container">
+        
+        <form onSubmit={handleLoginSubmit}>
+        <h2>Login</h2>
+          <label>
+            Email
+          <br />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <br />
+          <label>
+            Password
+          <br />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <br />
+          <button type="submit">Login</button>
+          <p className="signup-link">
+            Don't have an account?{' '}
+            <button onClick={toggleSignup}>Sign Up</button>
+          </p>
+        </form>
+      </div>
     </div>
   );
-}
+};
 
 export default Login;

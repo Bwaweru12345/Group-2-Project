@@ -1,0 +1,74 @@
+.background3 {
+    background-image: url('https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=826&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+.savings-container {
+    display: flex;
+    justify-content: space-between;
+   
+  }
+  
+  .savings-form,
+  .loan-form {
+    width: 45%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+  }
+  
+  .savings-form h3,
+  .loan-form h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .savings-form p,
+  .loan-form p {
+    margin-bottom: 10px;
+  }
+  
+  .savings-form input,
+  .loan-form input,
+  .savings-form label,
+  .loan-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .savings-form input[type='number'],
+  .loan-form input[type='number'],
+  .savings-form input[type='date'],
+  .loan-form input[type='date'] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .savings-form button,
+  .loan-form button {
+    padding: 10px 20px;
+    background-color: #ffff;
+    color: black;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .savings-form button:hover,
+  .loan-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .savings-form label input[type='checkbox'] {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .loan-form label input[type='checkbox'] {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  

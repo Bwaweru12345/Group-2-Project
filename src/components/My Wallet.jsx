@@ -1,27 +1,37 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './wallet.css';
 
 const Wallet = () => {
   return (
-    <div>
-      <section className='about'>
-        <div className='container'>
-          <div className='left'>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-            </p>
-            <button className='btn2'>More About Us</button>
-          </div>
-          <div className='right'>
-            <img src='' alt='' />
+    <div className="wallet-container">
+      <div className="card-grid">
+        <div className="card">
+          <div className="image-container">
+            <div className="image-overlay">
+              <h2>Financia</h2>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="home-container">
+        <h1>Welcome to My Finance App!</h1>
+        <p>Take control of your finances and achieve your financial goals.</p>
+        <div className="cta-buttons">
+          <Link to="/income" className="cta-button">
+            Track Income
+          </Link>
+          <Link to="/expenses" className="cta-button">
+            Manage Expenses
+          </Link>
+          <Link to="/savings" className="cta-button">
+            Save Money
+          </Link>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default Wallet;

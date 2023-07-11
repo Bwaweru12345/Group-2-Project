@@ -1,0 +1,67 @@
+.background {
+    background-image: url('https://images.unsplash.com/photo-1634733988138-bf2c3a2a13fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .bills-container {
+    font-family: Arial, sans-serif;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .bills-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .add-bill-button {
+    padding: 10px 20px;
+    background-color: #900C3F;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .add-bill-button:hover {
+    background-color: #581845;
+  }
+  
+  .bill-list-title {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .bill-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .bill-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  
+  .bill-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .bill-amount,
+  .bill-date {
+    margin-top: 5px;
+  }
+  

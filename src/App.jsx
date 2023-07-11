@@ -6,10 +6,9 @@ import Login from './components/Login';
 import Income from './components/Income';
 import Savings from './components/Savings';
 import Wallet from './components/My Wallet';
-import Transactions from './components/Transactions';
 import Personal from './components/Personal';
 import LandingPage from './components/Landingpage';
-import Footer from './components/Footer';
+
 
 
 function App() {
@@ -23,12 +22,11 @@ function App() {
           <Route path="/graph" element={<GraphicalAnalysis />} />
           <Route path="/income" element={<Income />} />
           <Route path="/savings" element={<Savings />} />
-          <Route path="/wallet" element={<Wallet />} />
-          <Route path="/transactions" element={<Transactions />} />
+          <Route path="/" element={<Wallet />} />
           <Route path="/usage" element={<Personal />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-        <Footer />
+        
       </div>
     
   );

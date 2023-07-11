@@ -1,34 +1,44 @@
 import { Link } from "react-router-dom";
-
-
+import './Header.css'
 function LandingPage() {
   return (
-    <div>
+    <div className="container">
       <nav className="navbar">
         <ul className="navbar-list">
-          <li className="navbar-item">
-            <Link to="/wallet">My Wallet</Link>
-          </li>
-          <li className="navbar-item" >
-            <Link to="/Income">Income</Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/Transactions">Transactions</Link>
+        <li className="navbar-item">
+            <Link to="/">
+              Home
+            </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/usage">Personal</Link>
+            <Link to="/Income">
+              Income
+            </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/Bills">Bills</Link>
+            <Link to="/usage">
+              Personal
+            </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/Savings">Savings</Link>
+            <Link to="/Bills">
+              Bills
+            </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/graph">Graphical analysis</Link>
+            <Link to="/Savings">
+              Savings
+            </Link>
           </li>
           <li className="navbar-item">
-            <Link to="/Login">Login</Link>
+            <Link to="/graph">
+              Graphical Analysis
+            </Link>
+          </li>
+          <li className="navbar-item">
+            <Link to="/Login">
+              Login
+            </Link>
           </li>
         </ul>
       </nav>
